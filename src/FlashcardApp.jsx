@@ -334,12 +334,12 @@ const FlashcardApp = () => {
 							type="text"
 							value={jsonInput}
 							onChange={(e) => setJsonInput(e.target.value)}
-							placeholder="Paste JSON data here to import flashcards"
+							placeholder="Paste JSON data here to import deck of flashcards!"
 							rows={3}
 						/>
 						<div className="flex flex-auto justify-around">
-							<Button onClick={importCards}>Import Cards</Button>
-							<Button onClick={exportCards}>Export Cards</Button>
+							<Button onClick={importCards}>Import Deck</Button>
+							<Button onClick={exportCards}>Export Deck</Button>
 						</div>
 					</div>
 				) : null}
