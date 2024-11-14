@@ -1,6 +1,16 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Get Started:
+1. clone this repository and use npm i then npm start, or just use the pages URL found here: [placeholder](placeholder).
+2. Format a set of test questions for yourself! Use the format of any of the two below. Or, if you're studying for AWS Cloud Practitioner or AWS Solutions Architect you can just use the provided decks.
+- If you are studying for **Cloud Practitioner**, copy all this deck: [placeholder](placeholder).
+- If you are studying for **Solutions Architect**, cope all this deck: [placeholder](placeholder).
+3. Click the "Toggle Import/Export" button.
+4. Paste the copied deck into the field.
+5. Click "import cards".
+6. Begin study session.
+7. When you have finished studying, click "Export Cards", then save this into a text, document, or json file.
+8. Remember where you saved the exported deck, as it contains your hints, notes, and card frequency/difficulty.
 
 ## Available Scripts
 
