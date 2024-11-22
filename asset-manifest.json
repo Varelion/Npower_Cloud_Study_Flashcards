@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Npower_Cloud_Study_Flashcards/static/css/main.ad7f92fd.css",
-    "main.js": "/Npower_Cloud_Study_Flashcards/static/js/main.3fd91b8c.js",
+    "main.css": "/Npower_Cloud_Study_Flashcards/static/css/main.54792fb0.css",
+    "main.js": "/Npower_Cloud_Study_Flashcards/static/js/main.d9d663a7.js",
     "static/js/453.82312ab2.chunk.js": "/Npower_Cloud_Study_Flashcards/static/js/453.82312ab2.chunk.js",
     "index.html": "/Npower_Cloud_Study_Flashcards/index.html",
-    "main.ad7f92fd.css.map": "/Npower_Cloud_Study_Flashcards/static/css/main.ad7f92fd.css.map",
-    "main.3fd91b8c.js.map": "/Npower_Cloud_Study_Flashcards/static/js/main.3fd91b8c.js.map",
+    "main.54792fb0.css.map": "/Npower_Cloud_Study_Flashcards/static/css/main.54792fb0.css.map",
+    "main.d9d663a7.js.map": "/Npower_Cloud_Study_Flashcards/static/js/main.d9d663a7.js.map",
     "453.82312ab2.chunk.js.map": "/Npower_Cloud_Study_Flashcards/static/js/453.82312ab2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad7f92fd.css",
-    "static/js/main.3fd91b8c.js"
+    "static/css/main.54792fb0.css",
+    "static/js/main.d9d663a7.js"
   ]
 }
