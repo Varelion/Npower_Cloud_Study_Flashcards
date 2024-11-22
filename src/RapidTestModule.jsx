@@ -85,7 +85,7 @@ const FlashcardApp = () => {
 			const allOptions = [
 				...currentCard._correctAnswersArray,
 				...currentCard._wrongAnswersArray
-			].map(answer => ({
+			].map((answer) => ({
 				value: answer,
 				isCorrect: currentCard._correctAnswersArray.includes(answer)
 			}));
@@ -120,10 +120,12 @@ const FlashcardApp = () => {
 				throw new Error('Invalid data format: Expected an array');
 			}
 
-			const cardStack = cardsData.map(cardData => FlashCard.fromJSON(cardData));
+			const cardStack = cardsData.map((cardData) =>
+				FlashCard.fromJSON(cardData)
+			);
 
-			setFlashcards(cardStack);
-			setCurrentCardIndex(0);
+			const shuffled = shuffleArray(cardStack);
+			setFlashcards(shuffled);
 			setSelectedAnswer('');
 			setHasAnswered(false);
 			setJsonInput('');
@@ -134,7 +136,11 @@ const FlashcardApp = () => {
 	};
 
 	const exportCards = () => {
-		const json = JSON.stringify(flashcards.map(card => card.toJSON()), null, 2);
+		const json = JSON.stringify(
+			flashcards.map((card) => card.toJSON()),
+			null,
+			2
+		);
 		setJsonInput(json);
 	};
 
@@ -158,13 +164,17 @@ const FlashcardApp = () => {
 		if (increase) {
 			updatedCards[currentCardIndex]._frequencyBasedOnDifficulty += 1;
 		} else {
-			updatedCards[currentCardIndex]._frequencyBasedOnDifficulty = Math.max(
-				1,
-				updatedCards[currentCardIndex]._frequencyBasedOnDifficulty - 1
-			);
+			updatedCards[currentCardIndex]._frequencyBasedOnDifficulty =
+				Math.max(
+					1,
+					updatedCards[currentCardIndex]._frequencyBasedOnDifficulty -
+						1
+				);
 		}
 		setFlashcards(updatedCards);
-		alert(`Frequency ${increase ? 'increased' : 'decreased'} for this card.`);
+		alert(
+			`Frequency ${increase ? 'increased' : 'decreased'} for this card.`
+		);
 	};
 
 	const handleKeyPress = (e) => {
@@ -180,13 +190,17 @@ const FlashcardApp = () => {
 	return (
 		<div
 			className={`min-h-screen p-6 transition-colors duration-300 ${
-				darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'
+				darkMode
+					? 'bg-gray-900 text-white'
+					: 'bg-gray-100 text-gray-900'
 			}`}
 			onKeyPress={handleKeyPress}
 		>
 			<div className="max-w-4xl mx-auto flex flex-col">
 				<div className="flex items-center justify-between mb-6">
-					<h1 className="text-5xl font-bold ml-auto mr-auto">Flashcards</h1>
+					<h1 className="text-5xl font-bold ml-auto mr-auto">
+						Rapid-Testing Module
+					</h1>
 					<Button
 						variant="outline"
 						size="icon"
@@ -220,15 +234,20 @@ const FlashcardApp = () => {
 											className={`p-3 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
 												hasAnswered
 													? option.isCorrect
-														? "border-green-500 bg-green-50 dark:bg-green-900/20"
-														: option.value === selectedAnswer
-															? "border-red-500 bg-red-50 dark:bg-red-900/20"
-															: "border-gray-200"
-													: selectedAnswer === option.value
-														? "border-blue-500 bg-blue-50 dark:bg-blue-900/20"
-														: "border-gray-200 hover:border-blue-300"
+														? 'border-green-500 bg-green-50 dark:bg-green-900/20'
+														: option.value ===
+														  selectedAnswer
+														? 'border-red-500 bg-red-50 dark:bg-red-900/20'
+														: 'border-gray-200'
+													: selectedAnswer ===
+													  option.value
+													? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
+													: 'border-gray-200 hover:border-blue-300'
 											}`}
-											onClick={() => !hasAnswered && setSelectedAnswer(option.value)}
+											onClick={() =>
+												!hasAnswered &&
+												setSelectedAnswer(option.value)
+											}
 										>
 											{option.value}
 										</div>
@@ -239,7 +258,11 @@ const FlashcardApp = () => {
 							<div className="flex justify-center space-x-2">
 								<Button
 									onClick={checkAnswer}
-									disabled={!currentCard || hasAnswered || !selectedAnswer}
+									disabled={
+										!currentCard ||
+										hasAnswered ||
+										!selectedAnswer
+									}
 								>
 									Check Answer
 								</Button>
@@ -254,21 +277,39 @@ const FlashcardApp = () => {
 								<div className="space-y-4">
 									<Alert
 										className={`rounded-lg transition-all duration-300 ${
-											currentCard.isCorrect(selectedAnswer)
-												? 'bg-green-50 dark:bg-green-900 text-white'
-												: 'bg-red-50 dark:bg-red-900 text-white'
+											currentCard.isCorrect(
+												selectedAnswer
+											)
+												? 'bg-grey-500 dark:bg-grey-200 '
+												: 'bg-grey-500 dark:bg-grey-200 '
 										}`}
 									>
 										<AlertDescription>
-											{currentCard.isCorrect(selectedAnswer) ? (
+											{currentCard.isCorrect(
+												selectedAnswer
+											) ? (
 												'Correct!'
 											) : (
 												<div className="space-y-2">
-													<p>Incorrect.</p>
+													<p><strong>Incorrect.</strong></p>
 													<p>
-														Correct answer{currentCard._correctAnswersArray.length > 1 ? 's' : ''}: {' '}
-														{currentCard._correctAnswersArray.join(', ')}
+														Correct answer
+														{currentCard
+															._correctAnswersArray
+															.length > 1
+															? 's would be'
+															: ' would be'}
+														:
 													</p>
+													<ul>
+														{currentCard._correctAnswersArray.map(
+															(answer, index) => (
+																<li key={index}>
+																	{index+1}: {answer}
+																</li>
+															)
+														)}
+													</ul>
 												</div>
 											)}
 										</AlertDescription>
@@ -276,14 +317,18 @@ const FlashcardApp = () => {
 
 									<div className="flex space-x-2">
 										<Button
-											onClick={() => adjustFrequency(true)}
+											onClick={() =>
+												adjustFrequency(true)
+											}
 											className="flex items-center gap-2"
 										>
 											<ChevronUp className="h-4 w-4" />
 											Show More Often
 										</Button>
 										<Button
-											onClick={() => adjustFrequency(false)}
+											onClick={() =>
+												adjustFrequency(false)
+											}
 											className="flex items-center gap-2"
 										>
 											<ChevronDown className="h-4 w-4" />
@@ -297,17 +342,21 @@ const FlashcardApp = () => {
 								<div className="space-y-4">
 									<Button
 										variant="outline"
-										onClick={() => setShowHintsNotes(!showHintsNotes)}
+										onClick={() =>
+											setShowHintsNotes(!showHintsNotes)
+										}
 										className="flex items-center gap-2"
 										aria-label="Toggle Hints & Notes"
 									>
 										{showHintsNotes ? (
 											<>
-												<EyeOff className="h-4 w-4" /> Hide Hints & Notes
+												<EyeOff className="h-4 w-4" />{' '}
+												Hide Hints & Notes
 											</>
 										) : (
 											<>
-												<Eye className="h-4 w-4" /> Show Hints & Notes
+												<Eye className="h-4 w-4" /> Show
+												Hints & Notes
 											</>
 										)}
 									</Button>
@@ -316,11 +365,18 @@ const FlashcardApp = () => {
 										<div className="space-y-4">
 											<div className="space-y-2">
 												<p className="text-sm font-medium">
-													{`Hint: ${currentCard._hint || 'No hint available.'}`}
+													{`Hint: ${
+														currentCard._hint ||
+														'No hint available.'
+													}`}
 												</p>
 												<Textarea
 													value={hintInput}
-													onChange={(e) => setHintInput(e.target.value)}
+													onChange={(e) =>
+														setHintInput(
+															e.target.value
+														)
+													}
 													placeholder="Edit hint"
 													rows={2}
 												/>
@@ -330,11 +386,18 @@ const FlashcardApp = () => {
 											</div>
 											<div className="space-y-2">
 												<p className="text-sm font-medium">
-													{`Notes: ${currentCard._notes || 'No notes available.'}`}
+													{`Notes: ${
+														currentCard._notes ||
+														'No notes available.'
+													}`}
 												</p>
 												<Textarea
 													value={notesInput}
-													onChange={(e) => setNotesInput(e.target.value)}
+													onChange={(e) =>
+														setNotesInput(
+															e.target.value
+														)
+													}
 													placeholder="Edit notes"
 													rows={3}
 												/>
