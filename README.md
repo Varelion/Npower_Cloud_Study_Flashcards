@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# AWS Solutions Architect Flashcard Study App
+
+## If this helps you, or you like it, please click the star button!
 
 Get Started:
 1. clone this repository and use npm i then npm start, or just use the pages URL found here: [placeholder](placeholder).
