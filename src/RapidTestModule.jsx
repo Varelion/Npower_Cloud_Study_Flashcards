@@ -202,10 +202,9 @@ const FlashcardApp = () => {
 						Rapid-Testing Module
 					</h1>
 					<Button
-						variant="outline"
 						size="icon"
 						onClick={toggleDarkMode}
-						className="rounded-full transition-colors duration-300"
+						className="rounded-full transition-colors duration-300 "
 						aria-label="Toggle Dark Mode"
 					>
 						{darkMode ? (
