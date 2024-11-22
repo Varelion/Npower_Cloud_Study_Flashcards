@@ -255,8 +255,8 @@ const FlashcardApp = () => {
 									<Alert
 										className={`rounded-lg transition-all duration-300 ${
 											currentCard.isCorrect(selectedAnswer)
-												? 'bg-green-50 dark:bg-green-900'
-												: 'bg-red-50 dark:bg-red-900'
+												? 'bg-green-50 dark:bg-green-900 text-white'
+												: 'bg-red-50 dark:bg-red-900 text-white'
 										}`}
 									>
 										<AlertDescription>
