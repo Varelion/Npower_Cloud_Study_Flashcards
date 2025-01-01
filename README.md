@@ -3,7 +3,7 @@
 ## If this helps you, or you like it, please click the star button!
 
 Get Started:
-1. Load up the [LIVE APPLICATION BY CLICKING HERE](https://github.com/Varelion/Npower_Cloud_Study_Flashcards), or locally host this repo if you know how to do it.
+1. Load up the [LIVE APPLICATION — CLICK HERE](https://varelion.github.io/Npower_Cloud_Study_Flashcards/), or locally host this repo if you know how to do it.
 2. Format a set of test questions for yourself! Use the format of any of the two below. Or, if you're studying for AWS Cloud Practitioner or AWS Solutions Architect you can just use the provided decks.
 
 - If you are studying for **Solutions Architect**, copy all this deck (**copy raw file button to the right of the page, next to the pencil**): [Solutions_Architect.json](https://github.com/Varelion/Npower_Cloud_Study_Flashcards/blob/main/Solutions_Architect.json).
